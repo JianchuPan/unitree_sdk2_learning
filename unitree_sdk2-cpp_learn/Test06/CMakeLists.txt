@@ -1,7 +1,7 @@
 # 1. 验证idlc工具是否可用（依赖系统环境变量PATH）
 find_program(IDLC_EXE NAMES idlc)
 if(NOT IDLC_EXE)
-  message(FATAL_ERROR "未找到idlc工具，请检查环境变量PATH是否包含CycloneDDS的bin目录")
+  message(FATAL_ERROR "未找到idlc工具,请检查环境变量PATH是否包含CycloneDDS的bin目录")
 endif()
 message(STATUS "找到idlc工具: ${IDLC_EXE}")  # 确认使用的是用户安装的版本
 
