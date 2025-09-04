@@ -9,6 +9,9 @@ sys.path.append(str(root_dir))
 from messages.user_data import *
 
 import time
+# 直接把源码文件中unitree_sdk2_python文件夹
+# 复制到"~/miniconda3/envs/ros2_humble/lib/python3.10/site-packages"下,否则报警告且无代码提示
+import unitree_sdk2py
 from unitree_sdk2py.core.channel import ChannelPublisher, ChannelFactoryInitialize
 
 def main():
@@ -24,12 +27,12 @@ def main():
     ChannelFactoryInitialize()
 
     # Create a publisher to publish the data defined in UserData class
-    pub = ChannelPublisher("topic", UserData)
+    pub = ChannelPublisher("topic", UserDefineData)
     pub.Init()
 
     for i in range(50):
         # Create a Userdata message
-        msg = UserData(" ", 0)
+        msg = UserDefineData(" ", 0)
         msg.string_data = f"HelloWorld! --{input_arg}"
         msg.float_data = time.time()
 

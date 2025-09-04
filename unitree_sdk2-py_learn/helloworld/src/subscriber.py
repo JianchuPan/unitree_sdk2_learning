@@ -14,7 +14,7 @@ from unitree_sdk2py.core.channel import ChannelSubscriber, ChannelFactoryInitial
 def main():
     ChannelFactoryInitialize()
     # Create a subscriber to subscribe the data defined in UserData class
-    sub = ChannelSubscriber("topic", UserData)
+    sub = ChannelSubscriber("topic", UserDefineData)
     sub.Init()
 
     while True:

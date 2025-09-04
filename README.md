@@ -81,10 +81,22 @@ export LD_LIBRARY_PATH=~/Install/unitree_sdk2/lib:$LD_LIBRARY_PATH # libunitree_
 
 - **使用**
   - 导入
-    `import unitree_sdk2py`
+    `应直接把源码文件中unitree_sdk2_python文件夹，复制到"~/miniconda3/envs/ros2_humble/lib/python3.10/site-packages"下,否则报警告且无代码提示`
+    `import unitree_sdk2py `
     `from unitree_sdk2py.core.channel import ChannelPublisher, ChannelFactoryInitialize`
 
-  
+  ### Third： **[unitree_sdk2-cpp_py_learn](./unitree_sdk2-cpp_py_learn/)**
+
+#### 消息接口文件
+- **自定义结构体类型**
+  - 自定义结构体是跨语言通信的核心，需确保 Python 类、IDL 结构体、C++ 生成类的 “类型名、字段名、字段顺序、字段类型” 完全一致。
+  - 跨语言通信关键对应原则
+    - **类型名严格一致**：Python typename 必须等于 IDL 结构体名（若有 module 则需加前缀，如 module名.结构体名）。
+    - **字段顺序严格一致**：DDS 按 “字段定义顺序” 序列化数据，而非字段名。例如 Python 先定义 float_data、IDL 先定义 string_data，会导致数据错位。
+    - **类型大小严格匹配**：避免 “Python 用 64 位 int、IDL 用 32 位 int” 的情况，会导致数值截断或溢出。python的float对应idl、cpp的double类型。
+- **idl接口文件的转换**
+  - CPP：.idl向.cpp/.hpp的转换见: *[CMake_idl_learning/Test06](https://github.com/JianchuPan/CMake_idl_learning/tree/main/Test06)*
+
 
 
 
