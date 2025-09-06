@@ -1,0 +1,18 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from helloworlddata_interfaces/msg/HelloWorldData.msg
+// generated code does not contain a copyright notice
+
+
+module helloworlddata_interfaces {
+  module msg {
+    struct HelloWorldData {
+      @verbatim (language="comment", text=
+        "对应IDL中的long long")
+      int64 user_id;
+
+      string name;
+
+      string message;
+    };
+  };
+};
